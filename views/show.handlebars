@@ -1,7 +1,10 @@
 <h1 class="mb-1 restaurant-show-title">{{restaurant.name}}</h1>
 <div class="container">
-  <a href="/restaurants/{{restaurant._id}}/edit">編輯資訊</a>
-  <a href="/">返回首頁</a>
+  <a href="/" class="btn btn-secondary btn-sm">返回首頁</a>
+  <a href="/restaurants/{{restaurant._id}}/edit" class="btn btn-primary btn-sm">編輯資訊</a>
+  <form action="/restaurants/{{restaurant._id}}/delete" method="POST" style="display: inline;">
+    <button type="submit" class="btn btn-danger btn-sm">刪除資料</button>
+  </form>
   <div class="row">
     <div class="col-12 col-md-10 mx-auto">
 

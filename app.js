@@ -124,6 +124,15 @@ app.post('/restaurants/:id/edit', (req, res) => {
     .catch(error => console.log(error))
 })
 
+app.post('/restaurants/:id/delete', (req, res) => {
+  const restaurantId = req.params.id
+  return Restaurant.findById(restaurantId)
+    .then(restaurant => restaurant.remove())
+    .then(() => res.redirect('/'))
+    .catch(error => console.log(error))
+})
+
+
 //設定搜尋功能
 app.get('/search', (req, res) => {
   const keyword = req.query.keyword.trim().toLowerCase()
