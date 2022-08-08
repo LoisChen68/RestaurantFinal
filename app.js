@@ -76,9 +76,14 @@ app.post('/restaurants', (req, res) => {
 })
 
 //設定餐廳詳細頁面動態路由
-app.get('/restaurant/:restaurant_id', (req, res) => {
-  const restaurant = restaurantData.find(restaurant => restaurant.id.toString() === req.params.restaurant_id)
-  res.render('show', { restaurant })
+app.get('/restaurants/:id', (req, res) => {
+  const restaurantId = req.params.id
+  return Restaurant.findById(restaurantId)
+    .lean()
+    .then(restaurant => res.render('show', { restaurant }))
+    .catch(error => console.log(error))
+  // const restaurant = restaurantData.find(restaurant => restaurant.id.toString() === req.params.restaurant_id)
+  // res.render('show', { restaurant })
 })
 
 //設定搜尋功能
