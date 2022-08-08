@@ -1,6 +1,13 @@
 const express = require('express')
 const mongoose = require('mongoose')
 
+//載入handlebars
+const exphbs = require('express-handlebars')
+
+//載入建立好的restaurant
+const Restaurant = require('./models/restaurant')
+const restaurant = require('./models/restaurant')
+
 const app = express()
 const port = 3000
 mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
@@ -15,12 +22,8 @@ db.once('open', () => {
   console.log('mongodb connected!')
 })
 
-
-//載入handlebars
-const exphbs = require('express-handlebars')
-
-//載入餐廳.json
-const restaurantData = require('./restaurant.json').results
+// //載入餐廳.json
+// const restaurantData = require('./restaurant.json').results
 
 //設定模板引擎
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
@@ -32,7 +35,11 @@ app.use(express.static('public'))
 
 //設定首頁路由
 app.get('/', (req, res) => {
-  res.render('index', { restaurantData })
+  Restaurant.find() //find內可以傳參數
+    .lean() //我們只需要乾淨的資料
+    //find => lean => restaurants 資料陣列 => 傳到index => 呼叫資料表 restaurants
+    .then(restaurants => res.render('index', { restaurants }))
+    .catch(error => console.error(error))
 })
 
 //設定餐廳詳細頁面動態路由
