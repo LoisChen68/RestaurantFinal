@@ -32,7 +32,7 @@
 5. 看見此行訊息代表成功運行，可用瀏覽器進入到以下網址
 
    ```bash
-   Listening on http://localhost:3000
+   Express is listening on localhost: http://localhost:3000
    ```
 
 6. 結束運行輸入
@@ -42,8 +42,9 @@
    ```
 
 # 開發工具
-
+- body-parser": 1.20.0
 - Node.js 16.16.0
 - Express 4.18.1
 - Express-Handlebars 3.0.0
 - Bootstrap 4.3.1
+- mongoose 5.9.7
