@@ -1,6 +1,9 @@
 const express = require('express')
 const mongoose = require('mongoose')
 
+//載入body-parser
+const bodyParser = require('body-parser')
+
 //載入handlebars
 const exphbs = require('express-handlebars')
 
@@ -29,6 +32,9 @@ db.once('open', () => {
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
 app.set('view engine', 'handlebars')
 
+//使用 bodyParser，解析資料類型
+app.use(bodyParser.urlencoded({ extended: true }))
+
 //設定靜態檔案
 app.use(express.static('public'))
 
@@ -40,6 +46,33 @@ app.get('/', (req, res) => {
     //find => lean => restaurants 資料陣列 => 傳到index => 呼叫資料表 restaurants
     .then(restaurants => res.render('index', { restaurants }))
     .catch(error => console.error(error))
+})
+
+//設定新增餐廳路由
+app.get('/restaurants/new', (req, res) => {
+  return res.render('new')
+})
+
+app.post('/restaurants', (req, res) => {
+  Restaurant.create(req.body)
+    .then(() => res.redirect('/'))
+    .catch(error => console.log(error))
+
+  // const { name, name_en, category, image, location, phone, google_map, rating, description } = req.body
+
+  // return Restaurant.create({
+  //   name,
+  //   name_en,
+  //   category,
+  //   image,
+  //   location,
+  //   phone,
+  //   google_map,
+  //   rating,
+  //   description
+  // })
+  //   .then(() => res.redirect('/'))
+  //   .catch(error => console.log(error))
 })
 
 //設定餐廳詳細頁面動態路由
