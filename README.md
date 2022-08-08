@@ -1,6 +1,6 @@
 # 餐廳清單
 
-![Index page about Restaurant List](https://github.com/LoisChen68/restaurant_list/blob/main/public/images/img.jpg?raw=true)
+![Index page about Restaurant List](https://github.com/LoisChen68/RestaurantCRUD/blob/main/public/imges/img.jpg?raw=true)
 
 # 介紹
 簡易的餐廳清單，包含餐廳詳細資料和搜尋功能
