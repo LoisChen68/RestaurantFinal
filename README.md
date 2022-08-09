@@ -42,9 +42,10 @@
    ```
 
 # 開發工具
-- body-parser": 1.20.0
+- body-parser: 1.20.0
 - Node.js 16.16.0
 - Express 4.18.1
 - Express-Handlebars 3.0.0
 - Bootstrap 4.3.1
+- method-override 3.0.0
 - mongoose 5.9.7
