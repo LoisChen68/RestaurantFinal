@@ -1,5 +1,4 @@
 const express = require('express')
-const mongoose = require('mongoose')
 
 //載入body-parser
 const bodyParser = require('body-parser')
@@ -10,25 +9,12 @@ const methodOverride = require('method-override')
 //載入handlebars
 const exphbs = require('express-handlebars')
 
-//載入建立好的restaurant
-const Restaurant = require('./models/restaurant')
-const restaurant = require('./models/restaurant')
-
 //引用路由器
 const routes = require('./routes')
+require('./config/mongoose')
+
 const app = express()
 const port = 3000
-mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
-
-const db = mongoose.connection
-
-db.on('error', () => {
-  console.log('mongodb error!')
-})
-
-db.once('open', () => {
-  console.log('mongodb connected!')
-})
 
 // //載入餐廳.json
 // const restaurantData = require('./restaurant.json').results
@@ -45,11 +31,8 @@ app.use(methodOverride('_method'))
 
 app.use(routes)
 
-
 //設定靜態檔案
 app.use(express.static('public'))
-
-
 
 
 //設定搜尋功能
