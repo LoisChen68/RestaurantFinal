@@ -4,6 +4,9 @@ const mongoose = require('mongoose')
 //載入body-parser
 const bodyParser = require('body-parser')
 
+//載入method-override
+const methodOverride = require('method-override')
+
 //載入handlebars
 const exphbs = require('express-handlebars')
 
@@ -34,6 +37,10 @@ app.set('view engine', 'handlebars')
 
 //使用 bodyParser，解析資料類型
 app.use(bodyParser.urlencoded({ extended: true }))
+
+//使用methodOverride
+app.use(methodOverride('_method'))
+
 
 //設定靜態檔案
 app.use(express.static('public'))
@@ -98,33 +105,16 @@ app.get('/restaurants/:id/edit', (req, res) => {
 })
 
 //將編輯過的餐廳資料回傳到資料庫
-app.post('/restaurants/:id/edit', (req, res) => {
+app.put('/restaurants/:id', (req, res) => {
   const restaurantId = req.params.id
   Restaurant.findByIdAndUpdate(restaurantId, req.body)
     .then(() => res.redirect(`/restaurants/${restaurantId}`))
     .catch(error => console.log(error))
 })
 
-//設定餐廳編輯頁面
-app.get('/restaurants/:id/edit', (req, res) => {
-  const restaurantId = req.params.id
-  return Restaurant.findById(restaurantId)
-    .lean()
-    .then(restaurant => res.render('edit', { restaurant }))
-    .catch(error => console.log(error))
-  // const restaurant = restaurantData.find(restaurant => restaurant.id.toString() === req.params.restaurant_id)
-  // res.render('show', { restaurant })
-})
 
-//將編輯過的餐廳資料回傳到資料庫
-app.post('/restaurants/:id/edit', (req, res) => {
-  const restaurantId = req.params.id
-  Restaurant.findByIdAndUpdate(restaurantId, req.body)
-    .then(() => res.redirect(`/restaurants/${restaurantId}`))
-    .catch(error => console.log(error))
-})
-
-app.post('/restaurants/:id/delete', (req, res) => {
+//刪除餐廳路由
+app.delete('/restaurants/:id', (req, res) => {
   const restaurantId = req.params.id
   return Restaurant.findById(restaurantId)
     .then(restaurant => restaurant.remove())

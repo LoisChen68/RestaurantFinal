@@ -2,7 +2,7 @@
 <div class="container">
   <a href="/" class="btn btn-secondary btn-sm">返回首頁</a>
   <a href="/restaurants/{{restaurant._id}}/edit" class="btn btn-primary btn-sm">編輯資訊</a>
-  <form action="/restaurants/{{restaurant._id}}/delete" method="POST" style="display: inline;">
+  <form action="/restaurants/{{restaurant._id}}?_method=DELETE" method="POST" style="display: inline;">
     <button type="submit" class="btn btn-danger btn-sm">刪除資料</button>
   </form>
   <div class="row">

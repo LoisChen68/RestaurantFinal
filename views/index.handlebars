@@ -29,7 +29,7 @@
             <h6 class="card-title mb-1">{{this.name}}</h6>
             <a href="./restaurants/{{ this._id }}" class="btn btn-info btn-sm">更多資訊</a>
             <a href="/restaurants/{{ this._id }}/edit" class="btn btn-primary btn-sm">編輯資訊</a>
-            <form action="./restaurants/{{this._id}}/delete" method="POST" style="display: inline;">
+            <form action="./restaurants/{{this._id}}?_method=DELETE" method="POST" style="display: inline;">
               <button type="submit" class="btn btn-danger btn-sm">刪除資料</button>
             </form>
             <div class="restaurant-category mb-1">
