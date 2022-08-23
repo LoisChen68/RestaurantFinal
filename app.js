@@ -15,6 +15,8 @@ const port = 3000
 app.engine('hbs', hbs.engine({ defaultLayout: 'main', extname: '.hbs' }))
 app.set('view engine', 'hbs')
 
+app.use(express.urlencoded({ extended: true }))
+
 app.use(session({
   secret: "secret",
   resave: false,

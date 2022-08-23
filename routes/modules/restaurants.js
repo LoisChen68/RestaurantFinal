@@ -12,22 +12,6 @@ router.post('/', (req, res) => {
   Restaurant.create(req.body)
     .then(() => res.redirect('/'))
     .catch(error => console.log(error))
-
-  // const { name, name_en, category, image, location, phone, google_map, rating, description } = req.body
-
-  // return Restaurant.create({
-  //   name,
-  //   name_en,
-  //   category,
-  //   image,
-  //   location,
-  //   phone,
-  //   google_map,
-  //   rating,
-  //   description
-  // })
-  //   .then(() => res.redirect('/'))
-  //   .catch(error => console.log(error))
 })
 
 //設定餐廳詳細頁面動態路由
@@ -37,8 +21,6 @@ router.get('/:id', (req, res) => {
     .lean()
     .then(restaurant => res.render('show', { restaurant }))
     .catch(error => console.log(error))
-  // const restaurant = restaurantData.find(restaurant => restaurant.id.toString() === req.params.restaurant_id)
-  // res.render('show', { restaurant })
 })
 
 //設定餐廳編輯頁面
@@ -48,8 +30,6 @@ router.get('/:id/edit', (req, res) => {
     .lean()
     .then(restaurant => res.render('edit', { restaurant }))
     .catch(error => console.log(error))
-  // const restaurant = restaurantData.find(restaurant => restaurant.id.toString() === req.params.restaurant_id)
-  // res.render('show', { restaurant })
 })
 
 //將編輯過的餐廳資料回傳到資料庫
