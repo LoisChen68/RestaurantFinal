@@ -3,6 +3,8 @@ const router = express.Router()
 
 const Restaurant = require('../../models/restaurant')
 
+router.use(express.urlencoded({ extended: true }))
+
 //設定首頁路由
 router.get('/', (req, res) => {
   Restaurant.find() //find內可以傳參數

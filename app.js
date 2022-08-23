@@ -1,42 +1,31 @@
 const express = require('express')
-
-//載入body-parser
+const session = require('express-session')
 const bodyParser = require('body-parser')
-
-//載入method-override
 const methodOverride = require('method-override')
-
-//載入handlebars
 const hbs = require('express-handlebars')
 
-//引用路由器
 const routes = require('./routes')
 require('./config/mongoose')
 
 const app = express()
 const port = 3000
 
-// //載入餐廳.json
-// const restaurantData = require('./restaurant.json').results
-
-//設定模板引擎
 app.engine('hbs', hbs.engine({ defaultLayout: 'main', extname: '.hbs' }))
 app.set('view engine', 'hbs')
 
-//使用 bodyParser，解析資料類型
-app.use(bodyParser.urlencoded({ extended: true }))
+app.use(session({
+  secret: "secret",
+  resave: false,
+  saveUninitialized: true
+}))
 
-//使用methodOverride
+
 app.use(methodOverride('_method'))
 
 app.use(routes)
 
-//設定靜態檔案
 app.use(express.static('public'))
 
-
-
-//設定監聽
 app.listen(port, () => {
   console.log(`Express is listening on http://localhost:${port}`)
 })
