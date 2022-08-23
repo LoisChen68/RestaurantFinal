@@ -25,6 +25,15 @@
             width="30" height="30" class="d-inline-block align-top" alt="我的餐廳清單">
           我的餐廳清單
         </a>
+        {{#if isAuthenticated}}
+        <div>
+          <a href="/" class="align-middle h5 text-info">Hello! {{ user.name }}</a>
+          <a href="./restaurants/new" class="btn btn-outline-primary">新增餐廳</a>
+          <a href="/users/logout" class="btn btn-outline-danger">登出</a>
+        </div>
+        {{else}}
+        <a href="/users/login" class="btn btn-outline-primary">登入</a>
+        {{/if}}
       </div>
     </nav>
 
