@@ -10,6 +10,26 @@ router.get('/new', (req, res) => {
 
 router.post('/', (req, res) => {
   const user_id = req.user._id
+  const { name, name_en, category, image, location, phone, google_map, rating, description } = req.body
+  const errors = []
+
+  if (!name || !category || !image || !location || !phone || !google_map || !rating) {
+    errors.push({ message: '缺少必填資料。' })
+  }
+
+  if (errors.length) {
+    return res.render('new', {
+      errors,
+      name_en,
+      category,
+      image,
+      location,
+      phone,
+      google_map,
+      rating,
+      description
+    })
+  }
 
   Restaurant.create({ ...req.body, user_id })
     .then(() => res.redirect('/'))

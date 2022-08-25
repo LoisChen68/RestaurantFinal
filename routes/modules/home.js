@@ -2,7 +2,6 @@ const express = require('express')
 const router = express.Router()
 
 const Restaurant = require('../../models/restaurant')
-const user = require('../../models/user')
 
 
 //設定首頁路由

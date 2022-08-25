@@ -2,41 +2,48 @@
   <div class="row mt-5">
     <div class="col-md-6 m-auto">
       <div class="card card-body">
+        {{> message}}
         <div class="mb-3">
-          <label for="name" class="mb-2">餐廳名稱：</label>
-          <input type="text" name="name" id="name" placeholder="餐廳名稱">
+          <label for="name" class="mb-2 required">餐廳名稱：</label>
+          <input type="text" name="name" id="name" placeholder="餐廳名稱" class="form-control">
         </div>
         <div class="mb-3">
           <label for="name_en" class="mb-2">餐廳英文名稱：</label>
-          <input type="text" name="name_en" id="name_en" placeholder="餐廳英文名稱">
+          <input type="text" name="name_en" id="name_en" placeholder="餐廳英文名稱" class="form-control">
         </div>
         <div class="mb-3">
-          <label for="category" class="mb-2">餐廳類型：</label>
-          <input type="text" name="category" id="category" placeholder="餐廳類型">
+          <label for="category" class="mb-2 required">餐廳類型：</label>
+          <select class="form-select" aria-label="Default select example" name="category" id="category">
+            <option selected>餐廳類型</option>
+            <option value="早午餐">早午餐</option>
+            <option value="日式">日式</option>
+            <option value="西式">西式</option>
+          </select>
         </div>
         <div class="mb-3">
-          <label for="image" class="mb-2">餐廳照片：</label>
-          <input type="text" name="image" id="image" placeholder="餐廳照片">
+          <label for="image" class="mb-2 required">餐廳照片：</label>
+          <input type="text" name="image" id="image" placeholder="餐廳照片" class="form-control">
         </div>
         <div class="mb-3">
-          <label for="location" class="mb-2">餐廳地點：</label>
-          <input type="text" name="location" id="location" placeholder="餐廳地點">
+          <label for="location" class="mb-2 required">餐廳地點：</label>
+          <input type="text" name="location" id="location" placeholder="餐廳地點" class="form-control">
         </div>
         <div class="mb-3">
-          <label for="phone" class="mb-2">餐廳電話：</label>
-          <input type="text" name="phone" id="phone" placeholder="餐廳電話">
+          <label for="phone" class="mb-2 required">餐廳電話：</label>
+          <input type="text" name="phone" id="phone" placeholder="餐廳電話" class="form-control">
         </div>
         <div class="mb-3">
-          <label for="google_map" class="mb-2">餐廳地圖：</label>
-          <input type="text" name="google_map" id="google_map" placeholder="Google map">
+          <label for="google_map" class="mb-2 required">餐廳地圖：</label>
+          <input type="text" name="google_map" id="google_map" placeholder="Google map" class="form-control">
         </div>
         <div class="mb-3">
-          <label for="rating" class="mb-2">餐廳評分：</label>
-          <input type="text" name="rating" id="rating">
+          <label for="rating" class="mb-2 required">餐廳評分：</label>
+          <input type="text" name="rating" id="rating" class="form-control">
         </div>
         <div class="mb-3">
           <label for="description" class="mb-2">餐廳詳細資訊：</label>
-          <input type="text" name="description" id="description">
+          <textarea type="text" name="description" id="description" class="form-control" rows="3">
+          </textarea>
         </div>
         <button type="submit" class="btn btn-primary btn-block">新增餐廳</button>
       </div>

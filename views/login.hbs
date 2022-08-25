@@ -1,8 +1,8 @@
 <div class="row mt-5">
   <div class="col-md-6 m-auto">
-    <div class="card card-body">
+    <div class="card card-body shadow p-3 mb-5 bg-body rounded">
       <h1 class="text-center mt-3">登入</h1>
-
+      {{> message}}
       <form action="/users/login" method="POST">
         <div class="mb-3">
           <label for="email" class="mb-2">Email</label>
@@ -12,8 +12,8 @@
           <label for="password" class="mb-2">密碼</label>
           <input type="password" id="password" name="password" class="form-control" placeholder="Enter Password">
         </div>
-        <button type="submit" class="btn btn-primary btn-block">登入</button>
-        <a href="/auth/facebook" class="btn btn-info btn-block">Facebook登入</a>
+        <button type="submit" class="btn btn-primary">登入</button>
+        <a href="/auth/facebook" class="btn btn-info">Facebook登入</a>
       </form>
       <p class="lead mt-4">
         還沒有帳號嗎? <a href="/users/register">註冊</a>

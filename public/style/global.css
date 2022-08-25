@@ -40,6 +40,11 @@ header {
   font-size: 0.8rem;
 }
 
+.required::before {
+  content: '*';
+  color: red;
+}
+
 .btn-major {
   background-color: #9b4b4b;
   color: white;

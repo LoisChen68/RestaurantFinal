@@ -1,7 +1,8 @@
 <div class="row mt-5">
   <div class="col-md-6 m-auto">
-    <div class="card card-body">
+    <div class="card card-body shadow p-3 mb-5 bg-body rounded">
       <h1 class="text-center mt-3">註冊</h1>
+      {{> message}}
       <form action="/users/register" method="POST">
         <div class="mb-3">
           <label for="name" class="mb-2">姓名</label>
