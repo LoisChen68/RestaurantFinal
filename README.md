@@ -36,9 +36,9 @@ $ npm install
 5.使用種子資料
 ```bash
 $ npm run seed
-```bash
-5.啟動伺服器
 ```
+5.啟動伺服器
+```bash
 $ npm run dev
 ```
 6.看到以下消息，代表執行成功
