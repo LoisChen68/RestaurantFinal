@@ -4,7 +4,7 @@
 ![Index page about Restaurant List](https://github.com/LoisChen68/RestaurantFinal/blob/main/public/imges/loginimg.jpg?raw=true)
 
 # 介紹
-簡易的餐廳清單，包含使用者登出登入功能，可創建屬於使用者的餐廳清單，並具有曾刪改查的功能
+簡易的餐廳清單，包含使用者登出登入功能，可創建屬於使用者的餐廳清單，並具有增刪改查的功能
 
 # 功能
 - 使用者可註冊並登入帳號
