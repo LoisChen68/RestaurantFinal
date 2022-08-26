@@ -22,25 +22,25 @@
 # 開始使用
 1.將專案clone到本機
    ```bash
-$ git clone https://github.com/LoisChen68/RestaurantFinal.git
+git clone https://github.com/LoisChen68/RestaurantFinal.git
    ```
 2.進入專案資料夾
    ```bash
-$ cd RestaurantFinal
+cd RestaurantFinal
    ```
 3.安裝所需的依賴
    ```bash
-$ npm install
+npm install
    ```
 4.根據 .env.example 在 .env文件中設置環境變量
 
 5.使用種子資料
 ```bash
-$ npm run seed
+npm run seed
 ```
 5.啟動伺服器
 ```bash
-$ npm run dev
+npm run dev
 ```
 6.看到以下消息，代表執行成功
 ```bash
