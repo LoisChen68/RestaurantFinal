@@ -5,9 +5,9 @@
       "email": "user1@example.com",
       "password": "12345678",
       "owner": [
+        0,
         1,
-        2,
-        3
+        2
       ]
     },
     {
@@ -15,9 +15,9 @@
       "email": "user2@example.com",
       "password": "12345678",
       "owner": [
+        3,
         4,
-        5,
-        6
+        5
       ]
     }
   ]
