@@ -35,14 +35,14 @@ $ npm install
 4.根據 .env.example 在 .env文件中設置環境變量
 5.使用種子資料
 ```bash
-npm run seed
-```
+$ npm run seed
+```bash
 5.啟動伺服器
-   ```
-   npm run dev
-   ```
+```
+$ npm run dev
+```
 6.看到以下消息，代表執行成功
 ```bash
 Express is listening on the http://localhost:3000
 mongodb connected!
- ```
+```
