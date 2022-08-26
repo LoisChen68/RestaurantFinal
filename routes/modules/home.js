@@ -6,7 +6,8 @@ const Restaurant = require('../../models/restaurant')
 
 //設定首頁路由
 router.get('/', (req, res) => {
-  Restaurant.find({ user_id: req.user._id })
+  const user_id = req.user._id
+  Restaurant.find({ user_id })
     .lean()
     .then(restaurants => res.render('index', { restaurants }))
     .catch(error => console.error(error))
@@ -14,8 +15,9 @@ router.get('/', (req, res) => {
 
 //設定搜尋功能
 router.get('/search', (req, res) => {
+  const user_id = req.user._id
   const keyword = req.query.keyword.trim().toLowerCase()
-  Restaurant.find()
+  Restaurant.find({ user_id })
     .lean()
     .then(restaurantData => {
       const filterRestaurant = restaurantData.filter(data => {
