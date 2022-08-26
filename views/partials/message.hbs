@@ -1,5 +1,5 @@
 {{#if success_msg}}
-<div class="alert alert-success d-flex align-items-center" role="alert">
+<div class="alert alert-success alert-dismissible fade show d-flex" role="alert">
   <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:">
     <use xlink:href="#check-circle-fill" />
   </svg>
@@ -10,7 +10,7 @@
 </div>
 {{/if}}
 {{#if warning_msg}}
-<div class="alert alert-warning d-flex align-items-center" role="alert">
+<div class="alert alert-warning alert-dismissible fade show d-flex" role="alert">
   <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Warning:">
     <use xlink:href="#exclamation-triangle-fill" />
   </svg>
@@ -22,13 +22,13 @@
 {{/if}}
 {{#if errors}}
 {{#each errors}}
-<div class="alert alert-danger d-flex align-items-center" role="alert">
+<div class="alert alert-danger alert-dismissible fade show d-flex" role="alert">
   <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="danger:">
     <use xlink:href="#exclamation-triangle-fill" />
   </svg>
   <div>
     {{this.message}}
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    <button type="button" class="btn-close " data-bs-dismiss="alert" aria-label="Close"></button>
   </div>
 </div>
 {{/each}}
