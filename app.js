@@ -2,10 +2,11 @@ const express = require('express')
 const session = require('express-session')
 const methodOverride = require('method-override')
 const flash = require('connect-flash')
+const hbs = require('express-handlebars')
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config()
 }
-const hbs = require('express-handlebars')
+
 
 const routes = require('./routes')
 
@@ -14,7 +15,6 @@ require('./config/mongoose')
 
 const app = express()
 const port = process.env.PORT
-
 app.engine('hbs', hbs.engine({ defaultLayout: 'main', extname: '.hbs' }))
 app.set('view engine', 'hbs')
 
@@ -26,6 +26,7 @@ app.use(session({
   saveUninitialized: true
 }))
 
+app.use(express.static('public'))
 
 app.use(methodOverride('_method'))
 
@@ -41,7 +42,6 @@ app.use((req, res, next) => {
 })
 app.use(routes)
 
-app.use(express.static('public'))
 
 app.listen(port, () => {
   console.log(`Express is listening on http://localhost:${port}`)
