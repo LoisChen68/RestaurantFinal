@@ -33,6 +33,7 @@ $ cd RestaurantFinal
 $ npm install
    ```
 4.根據 .env.example 在 .env文件中設置環境變量
+
 5.使用種子資料
 ```bash
 $ npm run seed
